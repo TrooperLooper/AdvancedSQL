@@ -1,0 +1,12 @@
+# Environment variables
+.env
+
+# Node modules (when you add them)
+node_modules/
+
+# Logs
+*.log
+
+# Docker volumes (optional)
+postgres_data/
+pgadmin_data/

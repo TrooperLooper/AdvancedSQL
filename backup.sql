@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict b3QeDHVZZXcecoNo8HAxyUw51SWL42pRwy6CMPiEDe7jCwanCKHWASIrLD6vRT4
+\restrict iCMYFu6be2IMslUaQA64ZWzGa6g8qmBx3sFxE01LyL58U933VOfTUNmmHiyxgn6
 
 -- Dumped from database version 18.0 (Debian 18.0-1.pgdg13+3)
 -- Dumped by pg_dump version 18.0 (Debian 18.0-1.pgdg13+3)
@@ -69,6 +69,12 @@ ALTER TABLE public.scores OWNER TO root;
 --
 
 COPY public.games (id, title, genre) FROM stdin;
+1	Pac-Man	Arcade
+2	Space Invaders	Shooter
+3	Tetris	Puzzle
+4	Pong	Sports
+5	Donkey Kong	Platform
+6	Asteroids	Shooter
 \.
 
 
@@ -77,6 +83,11 @@ COPY public.games (id, title, genre) FROM stdin;
 --
 
 COPY public.players (id, name, join_date) FROM stdin;
+1	Erik Andersson	2024-01-15
+2	Anna Lindqvist	2024-02-20
+3	Lars Johansson	2024-03-10
+4	Ingrid Bergman	2024-04-05
+5	Gustav Svensson	2024-05-12
 \.
 
 
@@ -85,6 +96,17 @@ COPY public.players (id, name, join_date) FROM stdin;
 --
 
 COPY public.scores (id, player_id, game_id, score, date_played) FROM stdin;
+1	1	1	12500	2024-06-01
+2	1	2	8750	2024-06-02
+3	1	3	45000	2024-06-03
+4	2	2	15600	2024-06-01
+5	2	4	21	2024-06-04
+6	2	5	89200	2024-06-05
+7	3	1	9800	2024-06-02
+8	3	3	67500	2024-06-06
+9	4	6	34500	2024-06-03
+10	4	1	11200	2024-06-07
+11	4	4	18	2024-06-08
 \.
 
 
@@ -132,5 +154,5 @@ ALTER TABLE ONLY public.scores
 -- PostgreSQL database dump complete
 --
 
-\unrestrict b3QeDHVZZXcecoNo8HAxyUw51SWL42pRwy6CMPiEDe7jCwanCKHWASIrLD6vRT4
+\unrestrict iCMYFu6be2IMslUaQA64ZWzGa6g8qmBx3sFxE01LyL58U933VOfTUNmmHiyxgn6
 
