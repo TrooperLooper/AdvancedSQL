@@ -15,7 +15,7 @@ const pool = new Pool({
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hej allihopa!");
 });
 
 app.get("/players-scores", async (req, res) => {
@@ -43,6 +43,22 @@ ORDER BY times_played DESC;`;
     res.json(result.rows);
   } catch (error) {
     console.error("Error fetching popular genres:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.get("/recent-players", async (req, res) => {
+  try {
+    const query = `
+      SELECT players.name, players.join_date
+      FROM players
+      WHERE join_date > CURRENT_DATE - INTERVAL '30 days'
+      ORDER BY join_date DESC;
+    `;
+    const result = await pool.query(query);
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Error fetching recent players:", error);
     res.status(500).send("Internal Server Error");
   }
 });
