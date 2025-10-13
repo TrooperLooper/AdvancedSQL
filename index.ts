@@ -5,6 +5,8 @@ import { z } from "zod";
 
 dotenv.config();
 
+const PORT = Number(process.env.PORT) || 3000;
+
 const app = express();
 const { Pool } = pg;
 
@@ -115,10 +117,12 @@ app.get("/test-db", async (req, res) => {
     res.json({ success: true, result: result.rows });
   } catch (error) {
     console.error("Database test failed:", error);
-    res.status(500).json({ error: error.message });
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
+    res.status(500).json({ error: errorMessage });
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(3000, () => {
+  console.log(`Server is running on port 3000`);
 });
