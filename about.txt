@@ -1,0 +1,1 @@
+A backend school assignment, handling advanced SQL, API development with TypeScript and Node.js, containerization (Docker), code quality automation, and real-world data management. 
